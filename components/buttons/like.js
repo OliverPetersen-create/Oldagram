@@ -1,4 +1,4 @@
-import { posts } from "/posts.js";
+import { posts } from ".//posts.js";
 
 class Like extends HTMLElement {
 	constructor() {
