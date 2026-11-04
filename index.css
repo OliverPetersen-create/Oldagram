@@ -4,9 +4,24 @@ body {
 	margin: 0;
 	font-family: Arial, Helvetica, sans-serif;
 }
-
 img {
 	align-self: center;
+}
+.post-comment,
+.post-likes,
+.post-button-div,
+user-card,
+.logo {
+	margin-left: 30px;
+}
+.post-button-div,
+user-card,
+.post-image {
+	margin-bottom: 30px;
+}
+.post-comment,
+header {
+	margin-bottom: 80px;
 }
 
 /* Header */
@@ -16,17 +31,13 @@ header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-bottom: 80px;
 	gap: 10px;
 	padding: 8px 0;
 	border-bottom: 1px solid black;
 }
-
 .logo {
 	width: 18.75rem;
-	margin-left: 30px
 }
-
 header user-avatar {
 	margin-right: 30px;
 }
@@ -37,34 +48,21 @@ section {
 	width: clamp(500px, 80%, 80%);
 	margin: 0 auto;
 }
-user-card {
-	margin-left: 30px;
-	margin-bottom: 30px;
-}
 .post-image {
 	width: 100%;
 	box-shadow: 0 0 10px black;
-	margin-bottom: 30px;
 }
 .post-button-div {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 30px;
-	margin-left: 30px;
-	margin-bottom: 30px;
 }
 .post-button {
 	width: 4rem;
 	height: 4rem;
 }
+.post-comment,
 .post-likes {
-	margin-left: 30px;
 	font-size: 2.5rem;
-	font-weight: bold;
-}
-.post-comment {
-	margin-left: 30px;
-	font-size: 2.5rem;
-	margin-bottom: 80px;
 	font-weight: bold;
 }

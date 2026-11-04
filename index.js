@@ -1,7 +1,7 @@
-import { Avatar } from "/components/user/avatar.js";
-import { Card } from "/components/user/card.js";
-import { Like } from "/components/buttons/like.js";
-import { posts } from "/posts.js";
+import { Avatar } from "./components/user/avatar.js";
+import { Card } from "./components/user/card.js";
+import { Like } from "./components/buttons/like.js";
+import { posts } from "./posts.js";
 
 const main = document.querySelector("main");
 
@@ -19,7 +19,7 @@ function loadPosts() {
 				<img role="button" tabIndex="0" class="post-button" src="images/icon-comment.png" alt="Speech bubble-shaped comment button" draggable="false" />
 				<img role="button" tabIndex="0" class="post-button" src="images/icon-dm.png" alt="Paper airplane-shaped DM button" draggable="false" />
 			</div>
-			<p id="post-${i}-likes" class="post-likes">${new Intl.NumberFormat().format(posts[i].likes)} likes</p>
+			<p id="post-${i}-likes" class="post-likes" aria-live="polite">${new Intl.NumberFormat().format(posts[i].likes)} likes</p>
 			<p class="post-comment">${posts[i].username} ${posts[i].comment}</p>
 		</section>
 		`

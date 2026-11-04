@@ -1,4 +1,4 @@
-import { posts } from "/../posts.js";
+import { posts } from "/posts.js";
 
 class Like extends HTMLElement {
 	constructor() {
@@ -8,7 +8,14 @@ class Like extends HTMLElement {
 		this.setAttribute("aria-label", "Heart-shaped like button");
 		this.attachShadow({mode: "open"});
 
-		this.addEventListener("click", () => {
+		this.addEventListener("click", e => {
+			const postId = this.getAttribute("for")
+			posts[postId].likes++;
+			document.querySelector("#" + this.getAttribute("likecounter")).textContent = `${new Intl.NumberFormat().format(posts[postId].likes)} likes`;
+		});
+		this.addEventListener("keydown", e => {
+			if (e.key !== " " && e.key !== "Enter") return;
+			e.preventDefault();
 			const postId = this.getAttribute("for")
 			posts[postId].likes++;
 			document.querySelector("#" + this.getAttribute("likecounter")).textContent = `${new Intl.NumberFormat().format(posts[postId].likes)} likes`;
@@ -16,15 +23,18 @@ class Like extends HTMLElement {
 
 		this.shadowRoot.innerHTML = `
 			<style>
+				:host {
+					transition: transform 0.25s;
+				}
 				img {
 					width: 4rem;
 					height: 4rem;
-					transition: transform 0.25s;
 				}
-				img:hover, img:focus {
+				:host(:hover), :host(:focus) {
 					transform: scale(1.05) translateY(-5px);
+					cursor: pointer;
 				}
-				img:active {
+				:host(:active) {
 					transform: scale(0.95) translateY(-5px);
 				}
 			</style>
