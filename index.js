@@ -3,7 +3,7 @@ import { Card } from "./components/user/card.js";
 import { Like } from "./components/buttons/like.js";
 import { posts } from "./posts.js";
 
-const main = document.querySelector("main");
+const section = document.querySelector("section");
 
 loadPosts();
 
@@ -11,7 +11,7 @@ function loadPosts() {
 	let html = "";
 	for (let i = 0; i < posts.length; i++) {
 		html += `
-		<section>
+		<article>
 			<user-card name="${posts[i].name}" location="${posts[i].location}" avatar="${posts[i].avatar}"></user-card>
 			<img class="post-image" src="${posts[i].post}" alt="" />
 			<div class="post-button-div">
@@ -21,10 +21,10 @@ function loadPosts() {
 			</div>
 			<p id="post-${i}-likes" class="post-likes" aria-live="polite">${new Intl.NumberFormat().format(posts[i].likes)} likes</p>
 			<p class="post-comment">${posts[i].username} ${posts[i].comment}</p>
-		</section>
+		</article>
 		`
 	}
-	main.innerHTML = html;
+	section.innerHTML = html;
 }
 
 customElements.define("user-avatar", Avatar);

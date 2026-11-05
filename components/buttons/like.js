@@ -8,7 +8,7 @@ class Like extends HTMLElement {
 		this.setAttribute("aria-label", "Heart-shaped like button");
 		this.attachShadow({mode: "open"});
 
-		this.addEventListener("click", e => {
+		this.addEventListener("click", () => {
 			const postId = this.getAttribute("for")
 			posts[postId].likes++;
 			document.querySelector("#" + this.getAttribute("likecounter")).textContent = `${new Intl.NumberFormat().format(posts[postId].likes)} likes`;
