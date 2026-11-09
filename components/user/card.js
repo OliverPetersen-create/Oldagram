@@ -8,26 +8,35 @@ class Card extends HTMLElement {
 			<style>
 				:host {
 					display: flex;
+					font-size: 2.5rem;
 				}
 				div {
 					display: flex;
 					flex-direction: column;
-					justify-content: space-between;
+					justify-content: center;
+					gap: 0.3em;
 					text-align: center;
 				}
 				div p {
-					margin: 0 0 0 16px;
+					margin: 0 0 0 0.4em;
 				}
 				.username {
-					font-size: 2.5rem;
+					font-size: 1em;
 					font-weight: bold;
 				}
 				.location {
-					font-size: 2.3125rem;
+					font-size: 0.9em;
+				}
+
+				user-avatar {
+					width: 2.5em;
+					height: 2.5em;
+					min-width: 2.5em;
+					min-height: 2.5em;
 				}
 				
 			</style>
-
+			
 			<user-avatar icon="" aria-hidden="true"></user-avatar>
 			<div>
 				<p class="username"></p>

@@ -19,7 +19,7 @@ user-card,
 .post-image {
 	margin-bottom: 30px;
 }
-.post-comment,
+article,
 header {
 	margin-bottom: 80px;
 }
@@ -27,7 +27,7 @@ header {
 /* Header */
 
 header {
-	width: clamp(500px, 100%, 100%);
+	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -45,8 +45,9 @@ header user-avatar {
 /* Main */
 
 section {
-	width: clamp(500px, 80%, 80%);
-	margin: 0 auto;
+	width: calc(100% - 5rem);
+	max-width: 68.75rem;
+	margin-inline: auto;
 }
 .post-image {
 	width: 100%;

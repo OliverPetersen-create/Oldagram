@@ -1,46 +1,40 @@
-import { posts } from "../../posts.js";
-
 class Like extends HTMLElement {
 	constructor() {
 		super();
-		this.setAttribute("role", "button");
-		this.setAttribute("tabIndex", 0);
-		this.setAttribute("aria-label", "Heart-shaped like button");
 		this.attachShadow({mode: "open"});
-
-		this.addEventListener("click", () => {
-			const postId = this.getAttribute("for")
-			posts[postId].likes++;
-			document.querySelector("#" + this.getAttribute("likecounter")).textContent = `${new Intl.NumberFormat().format(posts[postId].likes)} likes`;
-		});
-		this.addEventListener("keydown", e => {
-			if (e.key !== " " && e.key !== "Enter") return;
-			e.preventDefault();
-			const postId = this.getAttribute("for")
-			posts[postId].likes++;
-			document.querySelector("#" + this.getAttribute("likecounter")).textContent = `${new Intl.NumberFormat().format(posts[postId].likes)} likes`;
-		});
 
 		this.shadowRoot.innerHTML = `
 			<style>
-				:host {
+				:host, button {
 					transition: transform 0.25s;
 				}
-				img {
+				img, button {
 					width: 4rem;
 					height: 4rem;
 				}
-				:host(:hover), :host(:focus) {
+				button {
+					padding: 0;
+					margin: 0;
+					background: transparent;
+					border: none;
+				}
+				:host(:hover), button:focus-visible {
 					transform: scale(1.05) translateY(-5px);
-					cursor: pointer;
 				}
 				:host(:active) {
 					transform: scale(0.95) translateY(-5px);
 				}
 			</style>
-
-			<img src="images/icon-heart.png" alt="" draggable="false" />
+			<button type="button" aria-label="Like post">
+				<img src="images/icon-heart.png" alt="" draggable="false" />
+			</button>
 		`;
+
+		this.shadowRoot.querySelector("button").addEventListener("click", () => {
+			this.dispatchEvent(new CustomEvent("post-like", {
+				bubbles: true
+			}));
+		});
 	}
 }
 

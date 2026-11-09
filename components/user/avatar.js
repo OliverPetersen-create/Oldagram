@@ -10,6 +10,8 @@ class Avatar extends HTMLElement {
 				:host {
 					width: 6.25rem;
 					height: 6.25rem;
+					min-width: 6.25rem;
+					min-height: 6.25rem;
 				}
 				img {
 					width: 100%;

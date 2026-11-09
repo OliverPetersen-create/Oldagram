@@ -27,6 +27,13 @@ function loadPosts() {
 	section.innerHTML = html;
 }
 
+section.addEventListener("post-like", e => {
+	const target = e.target;
+	const postId = Number(target.getAttribute("for"));
+	posts[postId].likes++;
+	document.querySelector("#" + target.getAttribute("likecounter")).textContent = `${new Intl.NumberFormat().format(posts[postId].likes)} likes`;
+});
+
 customElements.define("user-avatar", Avatar);
 customElements.define("user-card", Card);
 customElements.define("like-button", Like);
